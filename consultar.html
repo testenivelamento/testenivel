@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicativo Personalizado</title>
+</head>
+<body>
+    <h1>Aplicativo Web Personalizado</h1>
+    <button id="fetchData">Buscar Dados</button>
+    <div id="data"></div>
+
+    <script>
+        document.getElementById('fetchData').addEventListener('click', function() {
+            // Chame seu backend para buscar dados do Google Sheets
+            fetch('/https://script.google.com/macros/s/AKfycbzbeo2GYRqzk77wiXap1FGdSR4yqEld7_im7mJwavJZtslpWVhIKLi4upTrCfKwHo9r1w/exec')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('data').innerText = JSON.stringify(data);
+                });
+        });
+    </script>
+</body>
+</html>
